@@ -1,70 +1,9 @@
-1. Create a .env and paste this code.
-
-Note: Configure the db first before you go to the next step.
-
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:lM429XETuY7qn7Wacjp1fH2qIb9XiKiiyTSE0J4BR1g=
-APP_DEBUG=true
-APP_URL=http://localhost
-
-LOG_CHANNEL=stack
-LOG_DEPRECATIONS_CHANNEL=null
-LOG_LEVEL=debug
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=db_ordering_system
-DB_USERNAME=root
-DB_PASSWORD=root
-
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-FILESYSTEM_DRIVER=local
-QUEUE_CONNECTION=database
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-
-MEMCACHED_HOST=127.0.0.1
-
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-MAIL_MAILER=smtp
-MAIL_HOST=mailhog
-MAIL_PORT=1025
-MAIL_USERNAME=null
-MAIL_PASSWORD=null
-MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS=null
-MAIL_FROM_NAME="${APP_NAME}"
-
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=
-AWS_USE_PATH_STYLE_ENDPOINT=false
-
-PUSHER_APP_ID=
-PUSHER_APP_KEY=
-PUSHER_APP_SECRET=
-PUSHER_APP_CLUSTER=mt1
-
-MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-
-SECRET_API_KEY=U0VDUkVUQUNDRVNTQVBJS0VZ
-SECRET_ACCESS_TOKEN=$2y$10$yQp1C6UEVKKNWGJ0uhKO5.PzIeH1PmFR2eIEDgV7i3.66Tmk9juo6
-
-MAIL_DRIVER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_FROM_NAME=OrderingSystem
-MAIL_USERNAME=fab092799@gmail.com
-MAIL_PASSWORD="gjvmoudnyiaxqwwg"
-MAIL_FROM_ADDRESS="fab092799@gmail.com"
-MAIL_ENCRYPTION=tls
+1. Open the .env file and configure the database connection.
 
 2. Open the terminal and run "npm install", "composer update", and "php artisan migrate:refresh --seed"
+    
+    Note: It automatically creates the product and the first user.
+
+    Credentials: email: admin_os@gmail.com password: abc123
+
+3. Open (2) terminal and run "php artisan serve" and "php artisan queue:work"
