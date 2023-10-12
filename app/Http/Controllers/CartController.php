@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\PurchaseEmailJob;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -91,6 +93,58 @@ class CartController extends Controller
             return response((array) 
                 [
                     'message' => 'Internal Server Error',
+                    'status' => "error"
+                ], 500);
+        }
+    }
+
+    public function purchaseOrder(Request $request)
+    {
+        try {
+
+            $id = $request->route('id');
+
+            $orderBy = User::where('id', $id)->first();
+
+            if (!$orderBy)
+                return response((array) 
+                    [
+                        'message' => 'User does not exist',
+                        'status' => "error"
+                    ], 404);
+
+            $cart = Cart::select('id', 'order_by', 'product_id', 'quantity')->with('user')->with('product')->where('order_by', $id)->where('status', 'Pending')->get();
+
+            if (count($cart) <= 0)
+                return response((array) 
+                    [
+                        'message' => 'Cart is empty',
+                        'status' => "error"
+                    ], 400);
+
+            $cart_ids = array_column($cart->toArray(), 'id',null);
+
+            $update = Cart::whereIn('id',$cart_ids)->update(['status' => 'Paid']);
+
+            $totalAmount = 0;
+
+            foreach ($cart as $key => $value) {
+                $totalAmount += $value->quantity * $value->product->price;
+            }
+
+            $fetchTable = ['data' => $cart, 'total' => $totalAmount];
+
+            dispatch(new PurchaseEmailJob($fetchTable, 'philipfbrs@gmail.com', 'Purchased Order'));
+
+            return response((array) [
+                'message' => 'Purchased complete!',
+                'status' => 'success',
+            ], 200)
+                ->header('Content-Type', 'application/json');
+        } catch (Exception $err) {
+            return response((array) 
+                [
+                    'message' => $err->getMessage(),
                     'status' => "error"
                 ], 500);
         }

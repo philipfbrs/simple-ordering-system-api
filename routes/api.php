@@ -100,6 +100,12 @@ Route::prefix('cart')->group(function () {
         'CartController@getCart'
     )->middleware(['validate-api-key', 'validate-access-token', 'validate-get-cart'])->name('add-to-cart');
 
+    // ADD TO CART
+    Route::post(
+        '/{id}',
+        'CartController@purchaseOrder'
+    )->middleware(['validate-api-key', 'validate-access-token'])->name('purchase-order');
+
 });
 
 

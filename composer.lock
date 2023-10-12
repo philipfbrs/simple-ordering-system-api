@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ddaadee671e77189099646494e67b36",
+    "content-hash": "b11a51b99468c4c97db1ba30e0b9703d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1664,6 +1664,62 @@
                 }
             ],
             "time": "2023-08-05T12:09:49+00:00"
+        },
+        {
+            "name": "magentron/laravel-blade-lint",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Magentron/laravel-blade-lint.git",
+                "reference": "c26b7fbf117ef816c4999a4402e1b30fd2f6a2e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Magentron/laravel-blade-lint/zipball/c26b7fbf117ef816c4999a4402e1b30fd2f6a2e6",
+                "reference": "c26b7fbf117ef816c4999a4402e1b30fd2f6a2e6",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Magentron\\BladeLint\\Providers\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Magentron\\BladeLint\\": "src/Magentron/BladeLint"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Derks",
+                    "email": "jeroen@derks.it",
+                    "homepage": "https://www.derks.it/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Blade Lint console command",
+            "homepage": "https://github.com/Magentron/laravel-blade-lint",
+            "keywords": [
+                "blade",
+                "console",
+                "laravel",
+                "lint"
+            ],
+            "support": {
+                "issues": "https://github.com/Magentron/laravel-blade-lint/issues",
+                "source": "https://github.com/Magentron/laravel-blade-lint/tree/1.0.7"
+            },
+            "time": "2018-11-28T14:07:44+00:00"
         },
         {
             "name": "monolog/monolog",

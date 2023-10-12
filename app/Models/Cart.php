@@ -22,4 +22,8 @@ class Cart extends Model
     public function product(){
         return $this->hasOne(Product::class, 'id','product_id')->select(['id','name','price']);
     }
+
+    public function user(){
+        return $this->hasOne(User::class, 'id','order_by')->select(['id','first_name','last_name','email']);
+    }
 }
