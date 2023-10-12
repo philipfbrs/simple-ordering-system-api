@@ -63,7 +63,7 @@ class CartController extends Controller
     {
         try {
             $input = $request->only('page', 'limit', 'search', 'filter', 'tabStatus');
-            $cart = Cart::select('id', 'order_by', 'product_id', 'quantity')->with('product');
+            $cart = Cart::select('id', 'order_by', 'product_id', 'quantity')->with('product')->where('status','Pending');
 
             $data = $cart->skip($input['page'] * $input['limit'])->take($input['limit']);
             $totalData = Cart::count();
@@ -134,7 +134,7 @@ class CartController extends Controller
 
             $fetchTable = ['data' => $cart, 'total' => $totalAmount];
 
-            dispatch(new PurchaseEmailJob($fetchTable, 'admin_os@yopmail.com', 'Purchased Order'));
+            dispatch(new PurchaseEmailJob($fetchTable, 'philipfbrs@gmail.com', 'Purchased Order'));
 
             return response((array) [
                 'message' => 'Purchased complete!',

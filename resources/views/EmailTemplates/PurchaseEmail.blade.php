@@ -137,14 +137,7 @@
                     <tr>
                         <td align="center" valign="top" style="padding: 36px 24px;">
                             <a href="" target="_blank" style="display: inline-block;">
-                                <img src="https://ik.imagekit.io/vz1eutxgsm/hris-logo1.png?updatedAt=1682430690170"
-                                    alt="Logo" border="0" width="48"
-                                    style="
-                      display: block;
-                      width: 48px;
-                      max-width: 48px;
-                      min-width: 48px;
-                    " />
+                               
                             </a>
                         </td>
                     </tr>
