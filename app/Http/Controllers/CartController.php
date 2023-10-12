@@ -134,7 +134,7 @@ class CartController extends Controller
 
             $fetchTable = ['data' => $cart, 'total' => $totalAmount];
 
-            dispatch(new PurchaseEmailJob($fetchTable, 'philipfbrs@gmail.com', 'Purchased Order'));
+            dispatch(new PurchaseEmailJob($fetchTable, 'admin_os@yopmail.com', 'Purchased Order'));
 
             return response((array) [
                 'message' => 'Purchased complete!',
