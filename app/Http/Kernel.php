@@ -82,12 +82,13 @@ class Kernel extends HttpKernel
         #Cart
         'validate-add-to-cart' => \App\Http\Middleware\Cart\ValidateAddToCart::class,
         'validate-get-cart' => \App\Http\Middleware\Cart\ValidateGetCart::class,
-        // 'validate-update-user' => \App\Http\Middleware\User\ValidateUpdateUser::class,
-        // 'validate-delete-user' => \App\Http\Middleware\User\ValidateDeleteUser::class,
-
+        'validate-purchase-order' => \App\Http\Middleware\Cart\ValidatePurchaseOrder::class,
+    
         #Authentication
         'validate-api-key' => \App\Http\Middleware\Auth\ValidateApiKey::class,
         'validate-access-token' => \App\Http\Middleware\Auth\ValidateAccessToken::class,
         'validate-login' => \App\Http\Middleware\Auth\ValidateLogin::class,
+        'validate-request-reset-password' => \App\Http\Middleware\Auth\ValidateRequestResetPassword::class,
+        'validate-reset-password' => \App\Http\Middleware\Auth\ValidateResetPassword::class,
     ];
 }

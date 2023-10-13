@@ -10,7 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class PurchaseEmailJob implements ShouldQueue
+class ResetPasswordJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -39,7 +39,7 @@ class PurchaseEmailJob implements ShouldQueue
     public function handle()
     {
         try {
-            Mail::send('EmailTemplates.PurchaseEmailJob', $this->data, function ($message) {
+            Mail::send('EmailTemplates.ResetPassword', $this->data, function ($message) {
                 $message->from('fab092799@gmail.com', 'Ordering System');
                 $message->to($this->to)->subject($this->subject);
             });

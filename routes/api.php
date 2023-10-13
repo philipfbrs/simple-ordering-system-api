@@ -104,7 +104,7 @@ Route::prefix('cart')->group(function () {
     Route::post(
         '/{id}',
         'CartController@purchaseOrder'
-    )->middleware(['validate-api-key', 'validate-access-token'])->name('purchase-order');
+    )->middleware(['validate-api-key', 'validate-access-token', 'validate-purchase-order'])->name('purchase-order');
 
 });
 
@@ -121,6 +121,17 @@ Route::prefix('auth')->group(function () {
         '/login',
         'AuthenticationController@Login'
     )->middleware(['validate-api-key', 'validate-login'])->name('login');
+
+    // 
+    Route::post(
+        '/request-reset-password',
+        'AuthenticationController@requestResetPassword'
+    )->middleware(['validate-api-key','validate-request-reset-password'])->name('request-reset-password');
+
+    Route::post(
+        '/reset-password',
+        'AuthenticationController@resetPassword'
+    )->middleware(['validate-api-key','validate-reset-password'])->name('reset-password');
 
 });
 
