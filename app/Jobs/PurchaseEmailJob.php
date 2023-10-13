@@ -39,7 +39,7 @@ class PurchaseEmailJob implements ShouldQueue
     public function handle()
     {
         try {
-            Mail::send('EmailTemplates.PurchaseEmailJob', $this->data, function ($message) {
+            Mail::send('EmailTemplates.PurchaseEmail', $this->data, function ($message) {
                 $message->from('fab092799@gmail.com', 'Ordering System');
                 $message->to($this->to)->subject($this->subject);
             });

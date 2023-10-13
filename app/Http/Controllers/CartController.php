@@ -6,6 +6,7 @@ use App\Jobs\PurchaseEmailJob;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -134,7 +135,7 @@ class CartController extends Controller
 
             $fetchTable = ['data' => $cart, 'total' => $totalAmount];
 
-            dispatch(new PurchaseEmailJob($fetchTable, 'admin_os@yopmail.com', 'Purchased Order'));
+            dispatch(new PurchaseEmailJob($fetchTable, 'admin_os@yopmail.com', 'Purchased Order'))->delay(Carbon::now()->addSeconds(5));
 
             return response((array) [
                 'message' => 'Purchased complete!',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\ResetPasswordJob;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use ReallySimpleJWT\Token;
@@ -69,7 +70,7 @@ class AuthenticationController extends Controller
 
             User::where('id', $isExist->id)->update(['reset_token' => $password_token]);
 
-            dispatch(new ResetPasswordJob(['token' => $password_token, 'name' => $isExist->first_name], $input['email'], 'Account Reset Password'));
+            dispatch(new ResetPasswordJob(['token' => $password_token, 'name' => $isExist->first_name], $input['email'], 'Account Reset Password'))->delay(Carbon::now()->addSeconds(5));
 
             return response((array) [
                 'message' => 'Reset password was sent!',
