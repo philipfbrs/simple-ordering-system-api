@@ -28,6 +28,7 @@ With these modifications, the purchase emails will be sent to '<your_gmail>@gmai
 
 
 Api Endpoint:
+
 #CREATE PRODUCT
 Create Product - (POST) /api/product
 Payload - {
@@ -48,8 +49,9 @@ Payload - {
 #DELETE PRODUCT
 DELETE Product - (DELETE) /api/product/:id
 
+#UPDATE PRODUCT
 UPDATE Product - (PUT) /api/product
-Payload{
+Payload - {
     "name": "Product max2",
     "price": "1"
 }
