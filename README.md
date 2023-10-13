@@ -35,7 +35,7 @@ Payload - {
     "price": "1000"
 }
 
-Create Product - /api/product/add
+GET Product - (POST) /api/product/add
 Payload - {
     "page": 0,
     "limit": 20,
@@ -44,7 +44,7 @@ Payload - {
     "tabStatus": "all"
 }
 
-
+Create Product -
 
 
 
