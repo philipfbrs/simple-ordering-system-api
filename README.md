@@ -26,40 +26,6 @@ Code: dispatch(new PurchaseEmailJob($fetchTable, '<your_gmail>@gmail.com', 'Purc
 4. Save the changes to the CartController.php file.
 With these modifications, the purchase emails will be sent to '<your_gmail>@gmail.com' instead of 'admin_os@yopmail.com' when users make purchases. Make sure you save your changes and then continue with the rest of your instructions.
 
-
-Api Endpoint:
-
-#CREATE PRODUCT
-Create Product - (POST) /api/product
-Payload - {
-    "name":"Product max",
-    "price": "1000"
-}
-
-#VIEW PRODUCT
-GET Product - (POST) /api/product/add
-Payload - {
-    "page": 0,
-    "limit": 20,
-    "search": "8", /*product id can be search too*/
-    "filter": "", 
-    "tabStatus": "all"
-}
-
-#DELETE PRODUCT
-DELETE Product - (DELETE) /api/product/:id
-
-#UPDATE PRODUCT
-UPDATE Product - (PUT) /api/product
-Payload - {
-    "name": "Product max2",
-    "price": "1"
-}
-
-
-
-
-
-Reset Password API - /api/auth/reset-password
+5. Restart php artisan queue:work
 
  
