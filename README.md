@@ -30,13 +30,13 @@ With these modifications, the purchase emails will be sent to '<your_gmail>@gmai
 Api Endpoint:
 
 Create Product - (POST) /api/product
-Payload: {
+Payload - {
     "name":"Product max",
     "price": "1000"
 }
 
 Create Product - /api/product/add
-{
+Payload - {
     "page": 0,
     "limit": 20,
     "search": "8", 
