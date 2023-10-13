@@ -40,7 +40,7 @@ Route::prefix('product')->group(function () {
 
     // VIEW PRODUCT
     Route::post(
-        '/',
+        '/add',
         'ProductController@getProduct'
     )->middleware(['validate-api-key', 'validate-access-token', 'validate-get-product'])->name('get-product');
 
