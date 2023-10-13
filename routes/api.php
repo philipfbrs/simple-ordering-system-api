@@ -22,7 +22,7 @@ Route::prefix('product')->group(function () {
 
     // CREATE PRODUCT
     Route::post(
-        '/',
+        '/add',
         'ProductController@createProduct'
     )->middleware(['validate-api-key', 'validate-access-token', 'validate-create-product'])->name('create-product');
 
@@ -40,7 +40,7 @@ Route::prefix('product')->group(function () {
 
     // VIEW PRODUCT
     Route::post(
-        '/add',
+        '/',
         'ProductController@getProduct'
     )->middleware(['validate-api-key', 'validate-access-token', 'validate-get-product'])->name('get-product');
 
